@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Harrison Cole — Brisbane's data-driven prestige real estate specialist. $187M+ in results. 9.4 average days on market. Market dominance through precision.">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Harrison Cole | Prestige Real Estate — Brisbane</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg-primary: #0A0A0A;
+      --color-bg-elevated: #111111;
+      --color-bg-card: #161616;
+      --color-bg-hover: #1A1A1A;
+      --color-bg-contrast: #FAFAF7;
+
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: rgba(255, 255, 255, 0.6);
+      --color-text-tertiary: rgba(255, 255, 255, 0.35);
+      --color-text-dark: #0A0A0A;
+
+      --color-accent: #4AE68A;
+      --color-accent-glow: rgba(74, 230, 138, 0.2);
+      --color-accent-subtle: rgba(74, 230, 138, 0.08);
+
+      --color-border: rgba(255, 255, 255, 0.06);
+      --color-border-hover: rgba(255, 255, 255, 0.12);
+      --color-border-accent: rgba(74, 230, 138, 0.3);
+
+      --gradient-fade: linear-gradient(180deg, transparent 0%, var(--color-bg-primary) 100%);
+      --gradient-radial-glow: radial-gradient(ellipse at center, var(--color-accent-glow) 0%, transparent 70%);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+      --font-display: clamp(3rem, 8vw + 1rem, 8rem);
+      --font-h1: clamp(2rem, 5vw + 0.5rem, 4.5rem);
+      --font-h2: clamp(1.5rem, 3vw + 0.5rem, 2.75rem);
+      --font-h3: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
+      --font-body: clamp(0.975rem, 1.1vw, 1.0625rem);
+      --font-small: clamp(0.75rem, 0.85vw, 0.8125rem);
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 3rem;
+      --space-xl: 6rem;
+      --space-2xl: 10rem;
+      --space-section: clamp(8rem, 15vh, 14rem);
+
+      --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-transition: cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    html {
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+
+    body {
+      background: var(--color-bg-primary);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    input, textarea { font: inherit; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    ::selection { background: var(--color-accent); color: var(--color-bg-primary); }
+
+    /* =========================================================
+       SKIP LINK
+       ========================================================= */
+    .skip-link {
+      position: fixed; top: -100%; left: 50%; transform: translateX(-50%);
+      z-index: 10000; padding: 1rem 2rem;
+      background: var(--color-accent); color: var(--color-bg-primary);
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      transition: top 0.3s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* =========================================================
+       CUSTOM CURSOR
+       ========================================================= */
+    .cursor { display: none; }
+
+    @media (pointer: fine) {
+      .cursor {
+        display: block; position: fixed; top: 0; left: 0;
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--color-accent);
+        pointer-events: none; z-index: 9999;
+        transition: width 0.4s var(--ease-reveal),
+                    height 0.4s var(--ease-reveal),
+                    background 0.3s,
+                    transform 0.1s linear;
+        mix-blend-mode: difference;
+        transform: translate(-50%, -50%);
+      }
+      .cursor--active {
+        width: 48px; height: 48px;
+      }
+      body { cursor: none; }
+      body * { cursor: none; }
+    }
+
+    /* =========================================================
+       PRELOADER
+       ========================================================= */
+    .preloader {
+      position: fixed; inset: 0; z-index: 9998;
+      background: var(--color-bg-primary);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      transition: opacity 0.6s var(--ease-transition), visibility 0.6s;
+    }
+    .preloader--hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .preloader__name {
+      font-family: var(--font-sans);
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 600; letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-lg);
+    }
+    .preloader__bar-track {
+      width: 200px; height: 1px;
+      background: var(--color-border);
+      position: relative; overflow: hidden;
+    }
+    .preloader__bar-fill {
+      position: absolute; top: 0; left: 0;
+      width: 0%; height: 100%;
+      background: var(--color-accent);
+      transition: width 0.1s linear;
+    }
+    .preloader__counter {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-secondary);
+      margin-top: var(--space-sm);
+      letter-spacing: 0.1em;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: var(--space-md) clamp(1.5rem, 4vw, 3rem);
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+      border-bottom: 1px solid transparent;
+      opacity: 0; transform: translateY(-20px);
+    }
+    .nav--scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--color-border);
+    }
+    .nav--visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s var(--ease-reveal), transform 0.6s var(--ease-reveal), background 0.4s, border-color 0.4s; }
+    .nav__logo {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      letter-spacing: -0.02em;
+    }
+    .nav__links {
+      display: flex; align-items: center; gap: var(--space-lg);
+      list-style: none;
+    }
+    .nav__link {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--color-text-secondary);
+      transition: color 0.3s;
+    }
+    .nav__link:hover { color: var(--color-text-primary); }
+    .nav__phone {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      letter-spacing: 0.05em; color: var(--color-text-secondary);
+      transition: color 0.3s;
+    }
+    .nav__phone:hover { color: var(--color-accent); }
+    .nav__cta {
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      transition: background 0.3s, color 0.3s;
+    }
+    .nav__cta:hover { background: var(--color-accent); color: var(--color-bg-primary); }
+    .nav__hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      width: 24px; padding: 4px 0;
+    }
+    .nav__hamburger span {
+      display: block; width: 100%; height: 1px;
+      background: var(--color-text-primary);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav__hamburger--active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav__hamburger--active span:nth-child(2) { opacity: 0; }
+    .nav__hamburger--active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+    .nav__call-icon {
+      display: none; font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .nav__links, .nav__phone, .nav__cta { display: none; }
+      .nav__hamburger, .nav__call-icon { display: flex; }
+      .nav { padding: var(--space-sm) var(--space-md); }
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 99;
+      background: var(--color-bg-primary);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: var(--space-lg);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+    .mobile-menu--open { opacity: 1; visibility: visible; }
+    .mobile-menu__link {
+      font-family: var(--font-mono); font-size: clamp(1.25rem, 4vw, 1.75rem);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-text-secondary);
+      transition: color 0.3s;
+    }
+    .mobile-menu__link:hover { color: var(--color-accent); }
+    .mobile-menu__phone {
+      font-family: var(--font-mono); font-size: var(--font-body);
+      color: var(--color-accent); margin-top: var(--space-lg);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      position: relative; height: 100vh; min-height: 600px;
+      overflow: hidden; display: flex;
+      align-items: flex-end;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+    }
+    .hero__media {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero__img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.1);
+      transition: transform 1.5s var(--ease-reveal);
+    }
+    .hero__img--revealed { transform: scale(1); }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 2;
+      max-width: 800px;
+      padding-bottom: clamp(2rem, 5vh, 4rem);
+    }
+    .hero__overline {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      opacity: 0; transform: translateY(20px);
+    }
+    .hero__overline--visible { opacity: 1; transform: translateY(0); transition: opacity 0.8s var(--ease-reveal) 0.7s, transform 0.8s var(--ease-reveal) 0.7s; }
+    .hero__headline {
+      font-size: var(--font-h1); font-weight: 600;
+      letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: var(--space-lg);
+    }
+    .hero__headline .line {
+      display: block;
+      clip-path: inset(0 0 100% 0);
+    }
+    .hero__headline .line--visible {
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 1s var(--ease-reveal);
+    }
+    .hero__headline .line:nth-child(2) { transition-delay: 0.15s; }
+    .hero__cta-wrap {
+      opacity: 0; transform: translateY(20px);
+    }
+    .hero__cta-wrap--visible { opacity: 1; transform: translateY(0); transition: opacity 0.8s var(--ease-reveal) 1s, transform 0.8s var(--ease-reveal) 1s; }
+    .hero__cta {
+      display: inline-flex; align-items: center; gap: var(--space-sm);
+      padding: 1rem 2.25rem;
+      background: var(--color-accent); color: var(--color-bg-primary);
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      font-weight: 500;
+      transition: transform 0.3s var(--ease-reveal), box-shadow 0.3s;
+    }
+    .hero__cta:hover { box-shadow: 0 0 40px var(--color-accent-glow); }
+    .hero__cta-arrow {
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    .hero__cta:hover .hero__cta-arrow { transform: translateX(4px); }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 2rem;
+      left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      opacity: 0;
+    }
+    .scroll-indicator--visible { opacity: 1; transition: opacity 0.8s var(--ease-reveal) 1.2s; }
+    .scroll-indicator__line {
+      width: 1px; height: 40px;
+      background: linear-gradient(180deg, var(--color-text-secondary), transparent);
+      position: relative; overflow: hidden;
+    }
+    .scroll-indicator__dot {
+      position: absolute; top: 0; left: -2px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--color-accent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { top: 0; opacity: 1; }
+      80% { top: 35px; opacity: 0; }
+    }
+
+    /* =========================================================
+       SECTION: POSITIONING
+       ========================================================= */
+    .positioning {
+      min-height: 100vh; display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+    }
+    .positioning__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-lg);
+    }
+    .positioning__statement {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      font-weight: 500; letter-spacing: -0.02em;
+      line-height: 1.2; max-width: 900px;
+    }
+    .positioning__rule {
+      width: 60px; height: 1px; border: none;
+      background: var(--color-border-accent);
+      margin-top: var(--space-xl);
+    }
+
+    /* =========================================================
+       SECTION: PROOF / STATS
+       ========================================================= */
+    .proof {
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+    }
+    .proof__glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%; height: 60%;
+      background: var(--gradient-radial-glow);
+      opacity: 0.3; pointer-events: none;
+    }
+    .proof__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .proof__stat { text-align: center; }
+    .proof__number {
+      font-family: var(--font-mono); font-size: var(--font-display);
+      font-weight: 500; letter-spacing: -0.03em;
+      line-height: 1; color: var(--color-text-primary);
+    }
+    .proof__line {
+      width: 40px; height: 1px;
+      background: var(--color-accent);
+      margin: var(--space-md) auto;
+      opacity: 0.4;
+    }
+    .proof__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-text-tertiary);
+      line-height: 1.6;
+    }
+    .proof__testimonial {
+      text-align: center; max-width: 640px;
+      margin: var(--space-xl) auto 0;
+      position: relative; z-index: 1;
+    }
+    .proof__quote {
+      font-style: italic; font-size: var(--font-body);
+      color: var(--color-text-secondary); line-height: 1.7;
+    }
+    .proof__author {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-sm); letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .proof__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-xl) var(--space-lg); }
+    }
+
+    /* =========================================================
+       SECTION: RECENT RESULTS (HORIZONTAL SCROLL)
+       ========================================================= */
+    .results {
+      position: relative; overflow: hidden;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .results__header {
+      padding: var(--space-xl) clamp(1.5rem, 4vw, 3rem) var(--space-lg);
+    }
+    .results__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent);
+    }
+    .results__heading {
+      font-size: var(--font-h2); font-weight: 600;
+      letter-spacing: -0.03em; margin-top: var(--space-sm);
+    }
+    .results__track {
+      display: flex; gap: 0;
+      will-change: transform;
+    }
+    .result-panel {
+      min-width: 90vw; height: 80vh; min-height: 500px;
+      display: flex; flex-shrink: 0;
+      border-right: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .result-panel__image {
+      width: 55%; height: 100%; position: relative; overflow: hidden;
+    }
+    .result-panel__img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s var(--ease-reveal);
+    }
+    .result-panel:hover .result-panel__img { transform: scale(1.03); }
+    .result-panel__data {
+      width: 45%; padding: clamp(2rem, 4vw, 3.5rem);
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--color-bg-elevated);
+    }
+    .result-panel__index {
+      font-family: var(--font-mono); font-size: var(--font-h2);
+      color: var(--color-accent); opacity: 0.5;
+      margin-bottom: var(--space-md);
+    }
+    .result-panel__address {
+      font-family: var(--font-sans); font-size: var(--font-h3);
+      font-weight: 600; letter-spacing: -0.01em;
+      text-transform: uppercase; line-height: 1.3;
+      margin-bottom: var(--space-lg);
+    }
+    .result-panel__grid {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: var(--space-xs) var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .result-panel__key {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--color-text-tertiary);
+    }
+    .result-panel__val {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      letter-spacing: 0.02em; color: var(--color-text-primary);
+    }
+    .result-panel__val--price {
+      font-size: var(--font-h2); font-weight: 600;
+      letter-spacing: -0.02em; grid-column: 1 / -1;
+      margin-bottom: var(--space-sm);
+      font-family: var(--font-sans);
+    }
+    .result-panel__link {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--color-accent);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    .result-panel__link:hover { gap: 0.75rem; }
+
+    @media (max-width: 1024px) {
+      .results__track { flex-direction: column; }
+      .result-panel {
+        min-width: 100%; height: auto; min-height: auto;
+        flex-direction: column;
+      }
+      .result-panel__image { width: 100%; height: 50vw; max-height: 400px; }
+      .result-panel__data { width: 100%; }
+    }
+
+    /* =========================================================
+       SECTION: ABOUT
+       ========================================================= */
+    .about {
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(2rem, 5vw, 6rem);
+      max-width: 1400px; margin: 0 auto;
+      align-items: center;
+    }
+    .about__portrait-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .about__portrait {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .about__portrait-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, var(--color-bg-primary) 100%);
+      pointer-events: none;
+    }
+    .about__content { max-width: 540px; }
+    .about__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+    .about__name {
+      font-size: var(--font-h1); font-weight: 600;
+      letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: var(--space-lg);
+    }
+    .about__text {
+      font-size: var(--font-body); line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .about__text:last-of-type { margin-bottom: 0; }
+    .about__stat-line {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-accent); letter-spacing: 0.05em;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    @media (max-width: 768px) {
+      .about { grid-template-columns: 1fr; }
+      .about__portrait-wrap { aspect-ratio: 4/3; }
+    }
+
+    /* =========================================================
+       SECTION: SUBURB INTELLIGENCE
+       ========================================================= */
+    .intel {
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      border-top: 1px solid var(--color-border);
+    }
+    .intel__header {
+      margin-bottom: var(--space-xl);
+    }
+    .intel__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent); margin-bottom: var(--space-sm);
+    }
+    .intel__heading {
+      font-size: var(--font-h2); font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .intel__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--color-border);
+      max-width: 1400px; margin: 0 auto;
+    }
+    .intel-card {
+      background: var(--color-bg-primary);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      display: flex; flex-direction: column;
+      transition: background 0.4s;
+    }
+    .intel-card:hover { background: var(--color-bg-elevated); }
+    .intel-card__name {
+      font-family: var(--font-sans);
+      font-size: var(--font-h3); font-weight: 600;
+      letter-spacing: -0.01em; text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+    }
+    .intel-card__row {
+      display: flex; justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .intel-card__row:last-of-type { border-bottom: none; }
+    .intel-card__key {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+    }
+    .intel-card__val {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-primary);
+    }
+    .intel-card__val--up { color: var(--color-accent); }
+    .intel-card__link {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-top: auto; padding-top: var(--space-lg);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    .intel-card__link:hover { gap: 0.75rem; }
+
+    @media (max-width: 1024px) { .intel__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .intel__grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       SECTION: THE ARSENAL
+       ========================================================= */
+    .arsenal {
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      border-top: 1px solid var(--color-border);
+    }
+    .arsenal__header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: var(--space-xl);
+      flex-wrap: wrap; gap: var(--space-md);
+    }
+    .arsenal__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent); margin-bottom: var(--space-sm);
+    }
+    .arsenal__heading {
+      font-size: var(--font-h2); font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .arsenal__subline {
+      font-size: var(--font-body); color: var(--color-text-secondary);
+      max-width: 420px; line-height: 1.6;
+    }
+    .arsenal__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: 1400px; margin: 0 auto;
+    }
+    .arsenal-item {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--color-border);
+      transition: border-color 0.4s;
+    }
+    .arsenal-item:hover { border-color: var(--color-border-accent); }
+    .arsenal-item__img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s var(--ease-reveal);
+      filter: brightness(0.7);
+    }
+    .arsenal-item:hover .arsenal-item__img {
+      transform: scale(1.05); filter: brightness(0.85);
+    }
+    .arsenal-item__label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--space-md);
+      background: linear-gradient(0deg, rgba(10,10,10,0.9) 0%, transparent 100%);
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--color-text-secondary);
+    }
+    .arsenal__portals {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-border);
+      display: flex; align-items: center; gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .arsenal__portals-label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--color-text-tertiary);
+    }
+    .arsenal__portal-logo {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--font-body);
+      color: var(--color-text-tertiary);
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      .arsenal__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .arsenal__grid { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================
+       SECTION: CONVERSION
+       ========================================================= */
+    .conversion {
+      padding: var(--space-section) clamp(1.5rem, 4vw, 3rem);
+      border-top: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 8vw, 8rem);
+      max-width: 1200px; margin: 0 auto;
+      align-items: center;
+    }
+    .conversion__content {}
+    .conversion__label {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-accent); margin-bottom: var(--space-md);
+    }
+    .conversion__headline {
+      font-size: var(--font-h1); font-weight: 600;
+      letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: var(--space-lg);
+    }
+    .conversion__subline {
+      font-size: var(--font-body); color: var(--color-text-secondary);
+      line-height: 1.7; max-width: 480px;
+    }
+    .conversion__form { max-width: 480px; }
+    .form__group { margin-bottom: var(--space-md); }
+    .form__label {
+      display: block;
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-xs);
+    }
+    .form__input {
+      width: 100%; padding: 0.875rem 0;
+      background: none; border: none;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+      font-size: var(--font-body);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .form__input:focus { border-bottom-color: var(--color-accent); }
+    .form__input::placeholder { color: var(--color-text-tertiary); }
+    .form__submit {
+      display: inline-flex; align-items: center; gap: var(--space-sm);
+      padding: 1rem 2.5rem;
+      background: var(--color-accent); color: var(--color-bg-primary);
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      font-weight: 500; margin-top: var(--space-lg);
+      transition: box-shadow 0.3s, transform 0.3s;
+      border: none;
+    }
+    .form__submit:hover { box-shadow: 0 0 40px var(--color-accent-glow); }
+    .form__submit:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+    .form__phone-direct {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-tertiary); letter-spacing: 0.05em;
+      margin-top: var(--space-md);
+    }
+    .form__phone-direct a {
+      color: var(--color-text-secondary);
+      transition: color 0.3s;
+    }
+    .form__phone-direct a:hover { color: var(--color-accent); }
+
+    @media (max-width: 768px) {
+      .conversion { grid-template-columns: 1fr; }
+      .conversion__form { max-width: 100%; }
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .footer {
+      padding: var(--space-xl) clamp(1.5rem, 4vw, 3rem) var(--space-lg);
+      border-top: 1px solid var(--color-border);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-lg);
+      max-width: 1400px; margin: 0 auto;
+      margin-bottom: var(--space-xl);
+    }
+    .footer__brand-name {
+      font-size: var(--font-h3); font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-sm);
+    }
+    .footer__brand-tagline {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-tertiary); letter-spacing: 0.05em;
+    }
+    .footer__col-title {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-md);
+    }
+    .footer__link {
+      display: block;
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-secondary); letter-spacing: 0.02em;
+      padding: var(--space-xs) 0;
+      transition: color 0.3s;
+    }
+    .footer__link:hover { color: var(--color-accent); }
+    .footer__bottom {
+      max-width: 1400px; margin: 0 auto;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-border);
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: var(--space-sm);
+    }
+    .footer__legal {
+      font-family: var(--font-mono); font-size: var(--font-small);
+      color: var(--color-text-tertiary); letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 768px) {
+      .footer__grid { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION CLASSES
+       ========================================================= */
+    .reveal {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1s var(--ease-reveal);
+    }
+    .reveal--visible { clip-path: inset(0 0 0 0); }
+    .reveal-fade {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-reveal), transform 0.8s var(--ease-reveal);
+    }
+    .reveal-fade--visible { opacity: 1; transform: translateY(0); }
+
+    /* Stagger delays */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* =========================================================
+       AMBIENT GLOW (HERO)
+       ========================================================= */
+    .hero__ambient {
+      position: absolute; bottom: -20%; left: -10%;
+      width: 60%; height: 60%;
+      background: radial-gradient(ellipse, var(--color-accent-glow) 0%, transparent 70%);
+      opacity: 0.15; pointer-events: none; z-index: 1;
+      animation: ambientDrift 12s ease-in-out infinite alternate;
+    }
+    @keyframes ambientDrift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(5%, -5%) scale(1.1); }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { clip-path: none; }
+      .reveal-fade { opacity: 1; transform: none; }
+      .hero__headline .line { clip-path: none; }
+      .hero__overline, .hero__cta-wrap, .scroll-indicator { opacity: 1; transform: none; }
+      .hero__img { transform: none; }
+      .nav { opacity: 1; transform: none; }
+      .preloader { display: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__name">HARRISON COLE</div>
+    <div class="preloader__bar-track">
+      <div class="preloader__bar-fill" id="preloaderBar"></div>
+    </div>
+    <div class="preloader__counter" id="preloaderCounter">000</div>
+  </div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <a href="#" class="nav__logo">HARRISON COLE</a>
+      <ul class="nav__links">
+        <li><a href="#results" class="nav__link">Results</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#intelligence" class="nav__link">Intelligence</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="tel:+61400000000" class="nav__phone">0400 000 000</a></li>
+        <li><a href="#contact" class="nav__cta magnetic">Request Appraisal</a></li>
+      </ul>
+      <a href="tel:+61400000000" class="nav__call-icon" aria-label="Call Harrison Cole">CALL</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#results" class="mobile-menu__link">Results</a>
+    <a href="#about" class="mobile-menu__link">About</a>
+    <a href="#intelligence" class="mobile-menu__link">Intelligence</a>
+    <a href="#contact" class="mobile-menu__link">Contact</a>
+    <a href="tel:+61400000000" class="mobile-menu__phone">0400 000 000</a>
+  </div>
+
+  <main id="main">
+    <!-- 01: HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__media">
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80&auto=format"
+          alt="Modern luxury property at dusk with dramatic lighting"
+          class="hero__img"
+          id="heroImg"
+          loading="eager"
+          fetchpriority="high"
+          width="1920" height="1080"
+        >
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__ambient" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__overline" id="heroOverline">Redefining Prestige Real Estate</p>
+        <h1 class="hero__headline">
+          <span class="line" id="heroLine1">Outcomes.</span>
+          <span class="line" id="heroLine2">Not Promises.</span>
+        </h1>
+        <div class="hero__cta-wrap" id="heroCta">
+          <a href="#contact" class="hero__cta magnetic">
+            Request Strategic Appraisal <span class="hero__cta-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+        <div class="scroll-indicator__line">
+          <div class="scroll-indicator__dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02: POSITIONING -->
+    <section class="positioning" aria-label="Our approach">
+      <p class="positioning__label reveal-fade">THE APPROACH</p>
+      <h2 class="positioning__statement reveal-fade reveal-delay-1">
+        We don't list properties. We engineer outcomes.
+      </h2>
+      <hr class="positioning__rule reveal-fade reveal-delay-2">
+    </section>
+
+    <!-- 03: PROOF ENGINE -->
+    <section class="proof" aria-label="Key results" id="proof">
+      <div class="proof__glow" aria-hidden="true"></div>
+      <div class="proof__grid">
+        <div class="proof__stat reveal-fade">
+          <div class="proof__number counter" data-target="187" data-prefix="$" data-suffix="M">$0M</div>
+          <div class="proof__line" aria-hidden="true"></div>
+          <div class="proof__label">Total Value<br>Delivered</div>
+        </div>
+        <div class="proof__stat reveal-fade reveal-delay-1">
+          <div class="proof__number counter" data-target="46" data-suffix="">0</div>
+          <div class="proof__line" aria-hidden="true"></div>
+          <div class="proof__label">Properties<br>Sold 24mo</div>
+        </div>
+        <div class="proof__stat reveal-fade reveal-delay-2">
+          <div class="proof__number counter" data-target="9.4" data-suffix="" data-decimals="1">0</div>
+          <div class="proof__line" aria-hidden="true"></div>
+          <div class="proof__label">Avg Days<br>On Market</div>
+        </div>
+        <div class="proof__stat reveal-fade reveal-delay-3">
+          <div class="proof__number counter" data-target="96" data-suffix="%">0%</div>
+          <div class="proof__line" aria-hidden="true"></div>
+          <div class="proof__label">Clearance<br>Rate</div>
+        </div>
+      </div>
+      <div class="proof__testimonial reveal-fade">
+        <p class="proof__quote">"The only agent in Brisbane I'd trust with an eight-figure listing."</p>
+        <p class="proof__author">— JAMES WHITFIELD, ASCOT</p>
+      </div>
+    </section>
+
+    <!-- 04: RECENT RESULTS -->
+    <section class="results" id="results" aria-label="Recent results">
+      <div class="results__header">
+        <p class="results__label reveal-fade">RECENT RESULTS</p>
+        <h2 class="results__heading reveal-fade reveal-delay-1">The Record Speaks</h2>
+      </div>
+      <div class="results__track" id="resultsTrack">
+        <article class="result-panel">
+          <div class="result-panel__image">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80&auto=format" alt="42 Victoria Street, Paddington" class="result-panel__img" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="result-panel__data">
+            <div class="result-panel__index">001</div>
+            <h3 class="result-panel__address">42 Victoria Street,<br>Paddington</h3>
+            <div class="result-panel__val--price">$4,280,000</div>
+            <div class="result-panel__grid">
+              <span class="result-panel__key">Sold</span><span class="result-panel__val">Auction</span>
+              <span class="result-panel__key">Days</span><span class="result-panel__val">9</span>
+              <span class="result-panel__key">Bidders</span><span class="result-panel__val">7 Registered</span>
+              <span class="result-panel__key">Above Res.</span><span class="result-panel__val">$380,000</span>
+            </div>
+            <a href="#" class="result-panel__link">View Campaign <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="result-panel">
+          <div class="result-panel__image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&auto=format" alt="17 Lancaster Road, Ascot" class="result-panel__img" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="result-panel__data">
+            <div class="result-panel__index">002</div>
+            <h3 class="result-panel__address">17 Lancaster Road,<br>Ascot</h3>
+            <div class="result-panel__val--price">$7,150,000</div>
+            <div class="result-panel__grid">
+              <span class="result-panel__key">Sold</span><span class="result-panel__val">Private Treaty</span>
+              <span class="result-panel__key">Days</span><span class="result-panel__val">6</span>
+              <span class="result-panel__key">Offers</span><span class="result-panel__val">3 Qualified</span>
+              <span class="result-panel__key">Above Ask</span><span class="result-panel__val">$250,000</span>
+            </div>
+            <a href="#" class="result-panel__link">View Campaign <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="result-panel">
+          <div class="result-panel__image">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80&auto=format" alt="8 Moray Street, New Farm" class="result-panel__img" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="result-panel__data">
+            <div class="result-panel__index">003</div>
+            <h3 class="result-panel__address">8 Moray Street,<br>New Farm</h3>
+            <div class="result-panel__val--price">$5,920,000</div>
+            <div class="result-panel__grid">
+              <span class="result-panel__key">Sold</span><span class="result-panel__val">Auction</span>
+              <span class="result-panel__key">Days</span><span class="result-panel__val">11</span>
+              <span class="result-panel__key">Bidders</span><span class="result-panel__val">5 Registered</span>
+              <span class="result-panel__key">Above Res.</span><span class="result-panel__val">$420,000</span>
+            </div>
+            <a href="#" class="result-panel__link">View Campaign <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="result-panel">
+          <div class="result-panel__image">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80&auto=format" alt="23 Florence Street, Teneriffe" class="result-panel__img" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="result-panel__data">
+            <div class="result-panel__index">004</div>
+            <h3 class="result-panel__address">23 Florence Street,<br>Teneriffe</h3>
+            <div class="result-panel__val--price">$3,475,000</div>
+            <div class="result-panel__grid">
+              <span class="result-panel__key">Sold</span><span class="result-panel__val">Auction</span>
+              <span class="result-panel__key">Days</span><span class="result-panel__val">8</span>
+              <span class="result-panel__key">Bidders</span><span class="result-panel__val">9 Registered</span>
+              <span class="result-panel__key">Above Res.</span><span class="result-panel__val">$275,000</span>
+            </div>
+            <a href="#" class="result-panel__link">View Campaign <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="result-panel">
+          <div class="result-panel__image">
+            <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80&auto=format" alt="91 Doris Street, Ascot" class="result-panel__img" loading="lazy" width="1200" height="800">
+          </div>
+          <div class="result-panel__data">
+            <div class="result-panel__index">005</div>
+            <h3 class="result-panel__address">91 Doris Street,<br>Ascot</h3>
+            <div class="result-panel__val--price">$8,600,000</div>
+            <div class="result-panel__grid">
+              <span class="result-panel__key">Sold</span><span class="result-panel__val">Private Treaty</span>
+              <span class="result-panel__key">Days</span><span class="result-panel__val">14</span>
+              <span class="result-panel__key">Offers</span><span class="result-panel__val">2 Qualified</span>
+              <span class="result-panel__key">Above Ask</span><span class="result-panel__val">$600,000</span>
+            </div>
+            <a href="#" class="result-panel__link">View Campaign <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05: ABOUT -->
+    <section class="about" id="about" aria-label="About Harrison Cole">
+      <div class="about__portrait-wrap reveal">
+        <img
+          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80&auto=format"
+          alt="Harrison Cole — editorial portrait"
+          class="about__portrait"
+          loading="lazy" width="900" height="1200"
+        >
+        <div class="about__portrait-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="about__content">
+        <p class="about__label reveal-fade">THE OPERATOR</p>
+        <h2 class="about__name reveal-fade reveal-delay-1">Harrison<br>Cole</h2>
+        <p class="about__text reveal-fade reveal-delay-2">
+          Fourteen years. Over $400M in settled transactions. A track record built not on charm — on outcomes that redefined vendor expectations across Brisbane's most contested markets.
+        </p>
+        <p class="about__text reveal-fade reveal-delay-3">
+          Every campaign is engineered with the precision of a product launch. Data informs the strategy. Execution is relentless. The result: consistently record-setting outcomes in Paddington, Ascot, New Farm, and Teneriffe.
+        </p>
+        <p class="about__text reveal-fade reveal-delay-4">
+          The number that matters isn't on this page. It's the one we'll achieve for you.
+        </p>
+        <p class="about__stat-line reveal-fade reveal-delay-4">
+          14 YRS &middot; $400M+ SETTLED &middot; 380+ CAMPAIGNS
+        </p>
+      </div>
+    </section>
+
+    <!-- 06: SUBURB INTELLIGENCE -->
+    <section class="intel" id="intelligence" aria-label="Market intelligence">
+      <div class="intel__header">
+        <p class="intel__label reveal-fade">MARKET INTELLIGENCE</p>
+        <h2 class="intel__heading reveal-fade reveal-delay-1">Territory We Dominate</h2>
+      </div>
+      <div class="intel__grid">
+        <div class="intel-card reveal-fade">
+          <h3 class="intel-card__name">Paddington</h3>
+          <div class="intel-card__row"><span class="intel-card__key">Median</span><span class="intel-card__val">$2.4M</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">YoY Growth</span><span class="intel-card__val intel-card__val--up">+12.3%</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Avg Days</span><span class="intel-card__val">14</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Stock</span><span class="intel-card__val">Low</span></div>
+          <a href="#" class="intel-card__link">View Market Brief <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="intel-card reveal-fade reveal-delay-1">
+          <h3 class="intel-card__name">Ascot</h3>
+          <div class="intel-card__row"><span class="intel-card__key">Median</span><span class="intel-card__val">$3.1M</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">YoY Growth</span><span class="intel-card__val intel-card__val--up">+9.8%</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Avg Days</span><span class="intel-card__val">11</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Stock</span><span class="intel-card__val">Very Low</span></div>
+          <a href="#" class="intel-card__link">View Market Brief <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="intel-card reveal-fade reveal-delay-2">
+          <h3 class="intel-card__name">New Farm</h3>
+          <div class="intel-card__row"><span class="intel-card__key">Median</span><span class="intel-card__val">$2.8M</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">YoY Growth</span><span class="intel-card__val intel-card__val--up">+14.1%</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Avg Days</span><span class="intel-card__val">9</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Stock</span><span class="intel-card__val">Low</span></div>
+          <a href="#" class="intel-card__link">View Market Brief <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="intel-card reveal-fade reveal-delay-3">
+          <h3 class="intel-card__name">Teneriffe</h3>
+          <div class="intel-card__row"><span class="intel-card__key">Median</span><span class="intel-card__val">$2.1M</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">YoY Growth</span><span class="intel-card__val intel-card__val--up">+16.7%</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Avg Days</span><span class="intel-card__val">12</span></div>
+          <div class="intel-card__row"><span class="intel-card__key">Stock</span><span class="intel-card__val">Moderate</span></div>
+          <a href="#" class="intel-card__link">View Market Brief <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07: THE ARSENAL -->
+    <section class="arsenal" aria-label="Campaign capabilities">
+      <div class="arsenal__header">
+        <div>
+          <p class="arsenal__label reveal-fade">THE ARSENAL</p>
+          <h2 class="arsenal__heading reveal-fade reveal-delay-1">Campaign System</h2>
+        </div>
+        <p class="arsenal__subline reveal-fade reveal-delay-2">
+          Every listing deploys a multi-vector campaign engineered for maximum market impact. This is not a photo and a listing. This is a launch.
+        </p>
+      </div>
+      <div class="arsenal__grid">
+        <div class="arsenal-item reveal-fade">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80&auto=format" alt="Professional interior photography" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Photography</div>
+        </div>
+        <div class="arsenal-item reveal-fade reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=800&q=80&auto=format" alt="Cinematic video production" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Cinematic Video</div>
+        </div>
+        <div class="arsenal-item reveal-fade reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&auto=format" alt="Aerial drone capture" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Aerial Capture</div>
+        </div>
+        <div class="arsenal-item reveal-fade reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format" alt="Digital marketing analytics dashboard" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Digital Targeting</div>
+        </div>
+        <div class="arsenal-item reveal-fade reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&auto=format" alt="Property styling and staging" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Staging &amp; Styling</div>
+        </div>
+        <div class="arsenal-item reveal-fade reveal-delay-3">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format" alt="Print collateral design" class="arsenal-item__img" loading="lazy" width="800" height="600">
+          <div class="arsenal-item__label">Print Collateral</div>
+        </div>
+      </div>
+      <div class="arsenal__portals reveal-fade">
+        <span class="arsenal__portals-label">Deployed Across</span>
+        <span class="arsenal__portal-logo">domain.com.au</span>
+        <span class="arsenal__portal-logo">realestate.com.au</span>
+        <span class="arsenal__portal-logo">Instagram</span>
+        <span class="arsenal__portal-logo">Facebook</span>
+        <span class="arsenal__portal-logo">YouTube</span>
+      </div>
+    </section>
+
+    <!-- 08: CONVERSION -->
+    <section class="conversion" id="contact" aria-label="Request an appraisal">
+      <div class="conversion__content">
+        <p class="conversion__label reveal-fade">NEXT MOVE</p>
+        <h2 class="conversion__headline reveal-fade reveal-delay-1">
+          Your Property.<br>Our Precision.
+        </h2>
+        <p class="conversion__subline reveal-fade reveal-delay-2">
+          Request a strategic market appraisal. No obligation. Full transparency. Complete market intelligence.
+        </p>
+      </div>
+      <form class="conversion__form" id="appraisalForm" aria-label="Appraisal request form">
+        <div class="form__group reveal-fade">
+          <label for="name" class="form__label">Name</label>
+          <input type="text" id="name" name="name" class="form__input" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="form__group reveal-fade reveal-delay-1">
+          <label for="email" class="form__label">Email</label>
+          <input type="email" id="email" name="email" class="form__input" placeholder="you@email.com" required autocomplete="email">
+        </div>
+        <div class="form__group reveal-fade reveal-delay-2">
+          <label for="phone" class="form__label">Phone</label>
+          <input type="tel" id="phone" name="phone" class="form__input" placeholder="04XX XXX XXX" autocomplete="tel">
+        </div>
+        <div class="form__group reveal-fade reveal-delay-3">
+          <label for="address" class="form__label">Property Address</label>
+          <input type="text" id="address" name="address" class="form__input" placeholder="Street address, suburb" required>
+        </div>
+        <button type="submit" class="form__submit magnetic reveal-fade reveal-delay-4">
+          Request Appraisal <span aria-hidden="true">&#8594;</span>
+        </button>
+        <p class="form__phone-direct reveal-fade reveal-delay-4">
+          Or call directly: <a href="tel:+61400000000">0400 000 000</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Harrison Cole</div>
+        <div class="footer__brand-tagline">Market dominance through precision.</div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <a href="#results" class="footer__link">Results</a>
+        <a href="#about" class="footer__link">About</a>
+        <a href="#intelligence" class="footer__link">Intelligence</a>
+        <a href="#contact" class="footer__link">Contact</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <a href="tel:+61400000000" class="footer__link">0400 000 000</a>
+        <a href="mailto:harrison@harrisoncole.com.au" class="footer__link">harrison@harrisoncole.com.au</a>
+        <span class="footer__link">Brisbane, QLD</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__legal">Licence No. 12345678 &middot; Queensland, Australia</span>
+      <span class="footer__legal">&copy; 2026 Harrison Cole. All rights reserved.</span>
+      <a href="#" class="footer__legal" style="text-decoration: underline;">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    (function() {
+      'use strict';
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+      const isDesktop = window.innerWidth > 1024;
+
+      /* =====================================================
+         PRELOADER
+         ===================================================== */
+      const preloader = document.querySelector('.preloader');
+      const preloaderBar = document.getElementById('preloaderBar');
+      const preloaderCounter = document.getElementById('preloaderCounter');
+      let preloaderProgress = 0;
+
+      function runPreloader() {
+        if (prefersReducedMotion) {
+          preloader.classList.add('preloader--hidden');
+          revealHero();
+          return;
+        }
+        const interval = setInterval(() => {
+          preloaderProgress += Math.random() * 15 + 5;
+          if (preloaderProgress >= 100) {
+            preloaderProgress = 100;
+            clearInterval(interval);
+            preloaderBar.style.width = '100%';
+            preloaderCounter.textContent = '100';
+            setTimeout(() => {
+              preloader.classList.add('preloader--hidden');
+              revealHero();
+            }, 300);
+            return;
+          }
+          preloaderBar.style.width = Math.floor(preloaderProgress) + '%';
+          preloaderCounter.textContent = String(Math.floor(preloaderProgress)).padStart(3, '0');
+        }, 80);
+      }
+      window.addEventListener('load', runPreloader);
+
+      /* =====================================================
+         HERO REVEAL SEQUENCE
+         ===================================================== */
+      function revealHero() {
+        const nav = document.getElementById('nav');
+        const heroImg = document.getElementById('heroImg');
+        const heroOverline = document.getElementById('heroOverline');
+        const heroLine1 = document.getElementById('heroLine1');
+        const heroLine2 = document.getElementById('heroLine2');
+        const heroCta = document.getElementById('heroCta');
+        const scrollInd = document.getElementById('scrollIndicator');
+
+        setTimeout(() => nav.classList.add('nav--visible'), 200);
+        setTimeout(() => heroImg.classList.add('hero__img--revealed'), 400);
+        setTimeout(() => {
+          heroLine1.classList.add('line--visible');
+          heroLine2.classList.add('line--visible');
+        }, 700);
+        setTimeout(() => heroOverline.classList.add('hero__overline--visible'), 700);
+        setTimeout(() => heroCta.classList.add('hero__cta-wrap--visible'), 1000);
+        setTimeout(() => scrollInd.classList.add('scroll-indicator--visible'), 1200);
+      }
+
+      /* =====================================================
+         LENIS SMOOTH SCROLL
+         ===================================================== */
+      let lenis;
+      if (!prefersReducedMotion) {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+          touchMultiplier: 2,
+          infinite: false,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      /* =====================================================
+         NAVIGATION SCROLL STATE
+         ===================================================== */
+      const nav = document.getElementById('nav');
+      let lastScroll = 0;
+      window.addEventListener('scroll', function() {
+        const y = window.scrollY;
+        if (y > 80) { nav.classList.add('nav--scrolled'); }
+        else { nav.classList.remove('nav--scrolled'); }
+        lastScroll = y;
+      }, { passive: true });
+
+      /* =====================================================
+         MOBILE MENU
+         ===================================================== */
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
+        hamburger.classList.toggle('nav__hamburger--active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        mobileMenu.setAttribute('aria-hidden', !isOpen);
+        if (lenis) { isOpen ? lenis.stop() : lenis.start(); }
+      });
+      mobileMenu.querySelectorAll('.mobile-menu__link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('mobile-menu--open');
+          hamburger.classList.remove('nav__hamburger--active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          if (lenis) lenis.start();
+        });
+      });
+
+      /* =====================================================
+         INTERSECTION OBSERVER — REVEALS
+         ===================================================== */
+      if (!prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(
+                entry.target.classList.contains('reveal') ? 'reveal--visible' : 'reveal-fade--visible'
+              );
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal, .reveal-fade').forEach(function(el) {
+          revealObserver.observe(el);
+        });
+      }
+
+      /* =====================================================
+         COUNTER ANIMATION
+         ===================================================== */
+      function animateCounter(el) {
+        const target = parseFloat(el.dataset.target);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const decimals = parseInt(el.dataset.decimals) || 0;
+        const duration = 2000;
+        const start = performance.now();
+
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          const current = target * eased;
+          el.textContent = prefix + current.toFixed(decimals) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      }
+
+      const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.counter').forEach(function(el) {
+        counterObserver.observe(el);
+      });
+
+      /* =====================================================
+         GSAP HORIZONTAL SCROLL (DESKTOP ONLY)
+         ===================================================== */
+      if (!prefersReducedMotion && isDesktop) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const track = document.getElementById('resultsTrack');
+        const panels = track.querySelectorAll('.result-panel');
+        const totalWidth = track.scrollWidth - window.innerWidth;
+
+        gsap.to(track, {
+          x: -totalWidth,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.results',
+            pin: true,
+            scrub: 1,
+            end: function() { return '+=' + totalWidth; },
+            invalidateOnRefresh: true,
+          }
+        });
+      }
+
+      /* =====================================================
+         IMAGE SCALE ON SCROLL
+         ===================================================== */
+      if (!prefersReducedMotion) {
+        const scaleImages = document.querySelectorAll('.arsenal-item__img, .about__portrait');
+        const scaleObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.transform = 'scale(1)';
+            }
+          });
+        }, { threshold: 0.1 });
+        scaleImages.forEach(function(img) {
+          img.style.transform = 'scale(1.08)';
+          img.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+          scaleObserver.observe(img);
+        });
+      }
+
+      /* =====================================================
+         CUSTOM CURSOR (DESKTOP ONLY)
+         ===================================================== */
+      if (!isTouchDevice) {
+        const cursor = document.querySelector('.cursor');
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+          cursorX = e.clientX;
+          cursorY = e.clientY;
+          cursor.style.left = cursorX + 'px';
+          cursor.style.top = cursorY + 'px';
+        });
+
+        const interactives = document.querySelectorAll('a, button, input, textarea, .result-panel, .arsenal-item, .intel-card');
+        interactives.forEach(function(el) {
+          el.addEventListener('mouseenter', function() { cursor.classList.add('cursor--active'); });
+          el.addEventListener('mouseleave', function() { cursor.classList.remove('cursor--active'); });
+        });
+      }
+
+      /* =====================================================
+         MAGNETIC BUTTONS (DESKTOP ONLY)
+         ===================================================== */
+      if (!isTouchDevice && !prefersReducedMotion) {
+        document.querySelectorAll('.magnetic').forEach(function(btn) {
+          btn.addEventListener('mousemove', function(e) {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+          });
+          btn.addEventListener('mouseleave', function() {
+            btn.style.transform = 'translate(0, 0)';
+            btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+          });
+          btn.addEventListener('mouseenter', function() {
+            btn.style.transition = 'none';
+          });
+        });
+      }
+
+      /* =====================================================
+         FORM SUBMISSION (PREVENT DEFAULT)
+         ===================================================== */
+      var form = document.getElementById('appraisalForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var btn = form.querySelector('.form__submit');
+          btn.textContent = 'RECEIVED \u2713';
+          btn.style.pointerEvents = 'none';
+          setTimeout(function() {
+            btn.innerHTML = 'Request Appraisal <span aria-hidden="true">&#8594;</span>';
+            btn.style.pointerEvents = '';
+            form.reset();
+          }, 3000);
+        });
+      }
+
+      /* =====================================================
+         SMOOTH ANCHOR SCROLLING
+         ===================================================== */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            if (lenis) { lenis.scrollTo(target, { offset: -80 }); }
+            else { target.scrollIntoView({ behavior: 'smooth' }); }
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
